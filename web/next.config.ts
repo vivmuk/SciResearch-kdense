@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_APP_VERSION: readVersionFromPyproject(),
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api-proxy/:path*",
+        destination: "http://127.0.0.1:8000/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

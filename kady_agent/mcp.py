@@ -507,6 +507,13 @@ def build_default_settings() -> dict:
                     "kady_agent.mcp_servers.pdf_annotations",
                 ],
             },
+            "venice-mcp": {
+                "command": "npx",
+                "args": ["-y", "venice-mcp"],
+                "env": {
+                    "VENICE_API_KEY": os.environ.get("VENICE_API_KEY", "")
+                }
+            },
         },
     }
 
