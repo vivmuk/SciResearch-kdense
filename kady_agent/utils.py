@@ -214,259 +214,67 @@ def sync_missing_scientific_skills(
             shutil.rmtree(staging_root, ignore_errors=True)
 
 
-def fetch_openrouter_models(
-    api_key: str | None = None,
-    max_age_days: int | None = None,
-    supported_parameters: str | None = None,
-) -> list[dict]:
-    """
-    Fetch all available models from OpenRouter using the official SDK.
-
-    Args:
-        api_key: OpenRouter API key (falls back to OPENROUTER_API_KEY env var).
-        max_age_days: If set, only return models created within this many days.
-        supported_parameters: Comma-separated OpenRouter parameters to require
-            (for example, "tools" to return only tool-calling models).
-
-    Returns a list of dicts, each with:
-        id, name, provider, context_length, modality, created,
-        pricing (prompt/completion per 1M tokens),
-        description, supported_parameters, max_completion_tokens
-    """
-    from openrouter import OpenRouter
-
-    key = api_key or os.getenv("OPENROUTER_API_KEY")
+def fetch_venice_models(api_key: str | None = None) -> list[dict]:
+    import httpx
+    import os
+    key = api_key or os.getenv("VENICE_API_KEY")
     if not key:
-        raise ValueError(
-            "No API key provided. Set OPENROUTER_API_KEY or pass api_key."
-        )
-
-    with OpenRouter(api_key=key) as client:
-        res = client.models.list(supported_parameters=supported_parameters)
-
-    if not res or not res.data:
+        print("No VENICE_API_KEY provided.")
         return []
 
-    cutoff_ts: float | None = None
-    if max_age_days is not None:
-        now = datetime.now(timezone.utc).timestamp()
-        cutoff_ts = now - (max_age_days * 86_400)
+    try:
+        resp = httpx.get("https://api.venice.ai/api/v1/models", headers={"Authorization": f"Bearer {key}"})
+        resp.raise_for_status()
+    except Exception as e:
+        print(f"Error fetching Venice models: {e}")
+        return []
 
-    models = []
-    for m in res.data:
-        created_ts = float(m.created or 0)
-        if cutoff_ts is not None and created_ts < cutoff_ts:
-            continue
-
-        prompt_price = float(m.pricing.prompt or 0) * 1_000_000
-        completion_price = float(m.pricing.completion or 0) * 1_000_000
-
-        provider = m.id.split("/")[0] if "/" in m.id else "unknown"
-
-        created_dt = datetime.fromtimestamp(created_ts, tz=timezone.utc)
-
-        models.append({
-            "id": m.id,
-            "name": m.name,
-            "provider": provider,
-            "created": created_dt.strftime("%Y-%m-%d"),
-            "context_length": int(m.context_length or 0),
-            "modality": m.architecture.modality if m.architecture else None,
-            "input_modalities": list(m.architecture.input_modalities) if m.architecture and m.architecture.input_modalities else [],
-            "output_modalities": list(m.architecture.output_modalities) if m.architecture and m.architecture.output_modalities else [],
-            "pricing": {
-                "prompt_per_1m": round(prompt_price, 4),
-                "completion_per_1m": round(completion_price, 4),
-            },
-            "max_completion_tokens": int(m.top_provider.max_completion_tokens or 0) if m.top_provider else None,
-            "supported_parameters": list(m.supported_parameters) if m.supported_parameters else [],
-            "description": m.description,
-        })
-
-    models.sort(key=lambda x: x["name"] or x["id"])
-    return models
-
-
-def search_openrouter_models(
-    query: str | None = None,
-    providers: list[str] | None = None,
-    min_context: int | None = None,
-    max_prompt_price: float | None = None,
-    modality: str | None = None,
-    max_age_days: int | None = None,
-    supported_parameters: str | None = None,
-    api_key: str | None = None,
-) -> list[dict]:
-    """
-    Search/filter OpenRouter models.
-
-    Args:
-        query: Case-insensitive substring match on model id, name, or description.
-        providers: Filter to models from these providers (e.g. ["google", "anthropic"]).
-        min_context: Minimum context length.
-        max_prompt_price: Maximum prompt price per 1M tokens.
-        modality: Filter by modality string (e.g. "text->text").
-        max_age_days: Only include models added within this many days (e.g. 90).
-        supported_parameters: Comma-separated OpenRouter parameters to require
-            (for example, "tools" to return only tool-calling models).
-        api_key: OpenRouter API key (falls back to OPENROUTER_API_KEY env var).
-    """
-    all_models = fetch_openrouter_models(
-        api_key=api_key,
-        max_age_days=max_age_days,
-        supported_parameters=supported_parameters,
-    )
-    results = all_models
-
-    if query:
-        q = query.lower()
-        results = [
-            m for m in results
-            if q in (m["id"] or "").lower()
-            or q in (m["name"] or "").lower()
-            or q in (m["description"] or "").lower()
-        ]
-
-    if providers:
-        provider_set = {p.lower() for p in providers}
-        results = [m for m in results if m["provider"].lower() in provider_set]
-
-    if min_context is not None:
-        results = [m for m in results if m["context_length"] >= min_context]
-
-    if max_prompt_price is not None:
-        results = [
-            m for m in results
-            if m["pricing"]["prompt_per_1m"] <= max_prompt_price
-        ]
-
-    if modality:
-        results = [m for m in results if m.get("modality") == modality]
-
-    return results
-
-
-def print_openrouter_models(
-    models: list[dict] | None = None, **filter_kwargs
-) -> None:
-    """Pretty-print a table of OpenRouter models. Accepts same filters as search_openrouter_models."""
-    if models is None:
-        models = search_openrouter_models(**filter_kwargs)
-
-    print(f"{'ID':<45} {'Name':<40} {'Context':>10} {'$/1M In':>10} {'$/1M Out':>10}")
-    print("-" * 120)
-    for m in models:
-        print(
-            f"{m['id']:<45} "
-            f"{(m['name'] or '')[:39]:<40} "
-            f"{m['context_length']:>10,} "
-            f"{m['pricing']['prompt_per_1m']:>10.2f} "
-            f"{m['pricing']['completion_per_1m']:>10.2f}"
-        )
-
-
-_PROVIDER_ALIASES = {
-    "openai": "OpenAI",
-    "anthropic": "Anthropic",
-    "google": "Google",
-    "meta-llama": "Meta",
-    "deepseek": "DeepSeek",
-    "x-ai": "xAI",
-    "mistralai": "Mistral",
-    "cohere": "Cohere",
-    "nvidia": "NVIDIA",
-    "qwen": "Qwen",
-    "amazon": "Amazon",
-    "microsoft": "Microsoft",
-    "minimax": "MiniMax",
-}
-
-
-def _provider_label(slug: str) -> str:
-    return _PROVIDER_ALIASES.get(slug, slug.replace("-", " ").title())
-
-
-def _model_label(name: str, provider_slug: str) -> str:
-    """Strip the 'Provider: ' prefix that OpenRouter puts on display names."""
-    display = _provider_label(provider_slug)
-    for prefix in [f"{display}: ", f"{provider_slug}: ", f"{provider_slug}/"]:
-        if name.startswith(prefix):
-            return name[len(prefix):]
-    return name
-
-
-def _pricing_tier(prompt_price: float) -> str:
-    if prompt_price < 0.50:
-        return "budget"
-    if prompt_price < 2.00:
-        return "mid"
-    if prompt_price < 5.00:
-        return "high"
-    return "flagship"
+    return resp.json().get('data', [])
 
 
 def update_models_json(
     output_path: str = "web/src/data/models.json",
-    default_model_id: str = "anthropic/claude-opus-4.8",
-    expert_default_model_id: str = "google/gemini-3.5-flash",
-    max_age_days: int | None = None,
-    supported_parameters: str | None = "tools",
-    excluded_model_ids: set[str] | None = None,
+    default_model_id: str = "minimax-m3",
+    expert_default_model_id: str = "qwen3.5-9b",
     api_key: str | None = None,
 ) -> None:
-    """Fetch models from OpenRouter and overwrite the frontend models.json.
+    """Fetch models from Venice and overwrite the frontend models.json.
 
     Args:
         output_path: Path to the output JSON file.
-        default_model_id: The OpenRouter model ID to mark as the default.
-        expert_default_model_id: The OpenRouter model ID to mark as the expert
+        default_model_id: The Venice model ID to mark as the default.
+        expert_default_model_id: The Venice model ID to mark as the expert
             default in the frontend picker.
-        max_age_days: Only include models added within this many days.
-            Pass None to include all models.
-        supported_parameters: Comma-separated OpenRouter parameters to require.
-            Defaults to "tools" because Kady sends tool definitions.
-        excluded_model_ids: OpenRouter model IDs to omit even if the API
-            returns them.
-        api_key: OpenRouter API key (falls back to OPENROUTER_API_KEY env var).
+        api_key: Venice API key (falls back to VENICE_API_KEY env var).
     """
-    excluded_model_ids = excluded_model_ids or {"openai/gpt-5.4", "openai/gpt-5.4-pro"}
-    raw_models = fetch_openrouter_models(
-        api_key=api_key,
-        max_age_days=max_age_days,
-        supported_parameters=supported_parameters,
-    )
+    raw_models = fetch_venice_models(api_key=api_key)
     out = Path(output_path)
-
     entries = []
+    
     for m in raw_models:
-        if m["id"] in excluded_model_ids:
-            continue
-
-        p_in = m["pricing"]["prompt_per_1m"]
-        p_out = m["pricing"]["completion_per_1m"]
-        if p_in < 0 or p_out < 0:
-            continue
-
-        slug = m["provider"]
+        m_id = m['id']
         entry = {
-            "id": f"openrouter/{m['id']}",
-            "label": _model_label(m["name"] or m["id"], slug),
-            "provider": _provider_label(slug),
-            "tier": _pricing_tier(p_in),
-            "context_length": m["context_length"],
-            "pricing": {"prompt": p_in, "completion": p_out},
-            "modality": m["modality"],
-            "description": m["description"] or "",
+            "id": f"venice/{m_id}",
+            "label": m_id,
+            "provider": "Venice",
+            "tier": "high" if "minimax" in m_id.lower() or "llama-3.3" in m_id.lower() else "mid",
+            "context_length": m.get('context_length', 128000),
+            "pricing": {"prompt": 0, "completion": 0},
+            "modality": "text+image+file->text",
+            "description": m.get('description', f"Venice model: {m_id}. Powered by Venice.")
         }
-        if m["id"] == default_model_id:
+        if default_model_id in m_id.lower():
             entry["default"] = True
-        if m["id"] == expert_default_model_id:
+        if expert_default_model_id in m_id.lower():
             entry["expertDefault"] = True
         entries.append(entry)
 
-    tier_order = {"flagship": 0, "high": 1, "mid": 2, "budget": 3}
-    entries.sort(key=lambda e: (tier_order.get(e["tier"], 99), -e["context_length"]))
+    # ensure defaults
+    if entries and not any(e.get('default') for e in entries):
+        entries[0]['default'] = True
+    if len(entries) > 1 and not any(e.get('expertDefault') for e in entries):
+        entries[1]['expertDefault'] = True
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(entries, indent=2) + "\n")
-    print(f"Models: wrote {len(entries)} models to {out}")
+    out.write_text(json.dumps(entries, indent=2) + "\n", encoding="utf-8")
+    print(f"Models: wrote {len(entries)} Venice models to {out}")
