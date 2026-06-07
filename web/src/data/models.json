@@ -1,1161 +1,1302 @@
 [
   {
-    "id": "venice/zai-org-glm-5-1",
-    "label": "zai-org-glm-5-1",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: zai-org-glm-5-1. Powered by Venice."
-  },
-  {
-    "id": "venice/zai-org-glm-5",
-    "label": "zai-org-glm-5",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: zai-org-glm-5. Powered by Venice.",
-    "expertDefault": true
-  },
-  {
-    "id": "venice/z-ai-glm-5-turbo",
-    "label": "z-ai-glm-5-turbo",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: z-ai-glm-5-turbo. Powered by Venice."
-  },
-  {
-    "id": "venice/z-ai-glm-5v-turbo",
-    "label": "z-ai-glm-5v-turbo",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: z-ai-glm-5v-turbo. Powered by Venice."
-  },
-  {
-    "id": "venice/olafangensan-glm-4.7-flash-heretic",
-    "label": "olafangensan-glm-4.7-flash-heretic",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: olafangensan-glm-4.7-flash-heretic. Powered by Venice."
-  },
-  {
-    "id": "venice/zai-org-glm-4.7-flash",
-    "label": "zai-org-glm-4.7-flash",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: zai-org-glm-4.7-flash. Powered by Venice."
-  },
-  {
-    "id": "venice/zai-org-glm-4.6",
-    "label": "zai-org-glm-4.6",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: zai-org-glm-4.6. Powered by Venice."
-  },
-  {
-    "id": "venice/zai-org-glm-4.7",
-    "label": "zai-org-glm-4.7",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: zai-org-glm-4.7. Powered by Venice."
-  },
-  {
-    "id": "venice/venice-uncensored-1-2",
-    "label": "venice-uncensored-1-2",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: venice-uncensored-1-2. Powered by Venice."
-  },
-  {
-    "id": "venice/venice-uncensored-role-play",
-    "label": "venice-uncensored-role-play",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: venice-uncensored-role-play. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen-3-7-max",
-    "label": "qwen-3-7-max",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen-3-7-max. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen-3-7-plus",
-    "label": "qwen-3-7-plus",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen-3-7-plus. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen-3-6-max-preview",
-    "label": "qwen-3-6-max-preview",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen-3-6-max-preview. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen-3-6-plus",
-    "label": "qwen-3-6-plus",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen-3-6-plus. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-6-27b",
-    "label": "qwen3-6-27b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-6-27b. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-5-9b",
-    "label": "qwen3-5-9b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-5-9b. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-5-397b-a17b",
-    "label": "qwen3-5-397b-a17b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-5-397b-a17b. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-5-35b-a3b",
-    "label": "qwen3-5-35b-a3b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-5-35b-a3b. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-235b-a22b-thinking-2507",
-    "label": "qwen3-235b-a22b-thinking-2507",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-235b-a22b-thinking-2507. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-235b-a22b-instruct-2507",
-    "label": "qwen3-235b-a22b-instruct-2507",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-235b-a22b-instruct-2507. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-next-80b",
-    "label": "qwen3-next-80b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-next-80b. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-vl-235b-a22b",
-    "label": "qwen3-vl-235b-a22b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-vl-235b-a22b. Powered by Venice."
-  },
-  {
-    "id": "venice/qwen3-coder-480b-a35b-instruct-turbo",
-    "label": "qwen3-coder-480b-a35b-instruct-turbo",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: qwen3-coder-480b-a35b-instruct-turbo. Powered by Venice."
-  },
-  {
-    "id": "venice/google-gemma-4-26b-a4b-it",
-    "label": "google-gemma-4-26b-a4b-it",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: google-gemma-4-26b-a4b-it. Powered by Venice."
-  },
-  {
-    "id": "venice/google-gemma-4-31b-it",
-    "label": "google-gemma-4-31b-it",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: google-gemma-4-31b-it. Powered by Venice."
-  },
-  {
-    "id": "venice/gemma-4-uncensored",
-    "label": "gemma-4-uncensored",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: gemma-4-uncensored. Powered by Venice."
-  },
-  {
-    "id": "venice/google-gemma-3-27b-it",
-    "label": "google-gemma-3-27b-it",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: google-gemma-3-27b-it. Powered by Venice."
-  },
-  {
-    "id": "venice/arcee-trinity-large-thinking",
-    "label": "arcee-trinity-large-thinking",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: arcee-trinity-large-thinking. Powered by Venice."
-  },
-  {
-    "id": "venice/grok-4-3",
-    "label": "grok-4-3",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: grok-4-3. Powered by Venice."
-  },
-  {
-    "id": "venice/grok-4-20",
-    "label": "grok-4-20",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: grok-4-20. Powered by Venice."
-  },
-  {
-    "id": "venice/grok-4-20-multi-agent",
-    "label": "grok-4-20-multi-agent",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: grok-4-20-multi-agent. Powered by Venice."
-  },
-  {
-    "id": "venice/grok-build-0-1",
-    "label": "grok-build-0-1",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: grok-build-0-1. Powered by Venice."
-  },
-  {
-    "id": "venice/mistral-small-3-2-24b-instruct",
-    "label": "mistral-small-3-2-24b-instruct",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: mistral-small-3-2-24b-instruct. Powered by Venice."
-  },
-  {
-    "id": "venice/mistral-small-2603",
-    "label": "mistral-small-2603",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: mistral-small-2603. Powered by Venice."
-  },
-  {
-    "id": "venice/hermes-3-llama-3.1-405b",
-    "label": "hermes-3-llama-3.1-405b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: hermes-3-llama-3.1-405b. Powered by Venice."
-  },
-  {
-    "id": "venice/gemini-3-1-pro-preview",
-    "label": "gemini-3-1-pro-preview",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: gemini-3-1-pro-preview. Powered by Venice."
-  },
-  {
-    "id": "venice/gemini-3-5-flash",
-    "label": "gemini-3-5-flash",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: gemini-3-5-flash. Powered by Venice."
-  },
-  {
-    "id": "venice/gemini-3-flash-preview",
-    "label": "gemini-3-flash-preview",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: gemini-3-flash-preview. Powered by Venice."
-  },
-  {
     "id": "venice/claude-opus-4-8",
-    "label": "claude-opus-4-8",
+    "label": "Claude Opus 4.8",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 6,
+      "completion": 30
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-opus-4-8. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family. It supports long-horizon agentic work, complex multi-step coding, and memory-driven tasks where coherence over extended sessions matters. It features a 1M token context window, 128K max output tokens, adaptive thinking, and strong multimodal capabilities.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/claude-opus-4-8-fast",
-    "label": "claude-opus-4-8-fast",
+    "label": "Claude Opus 4.8 Fast",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 12,
+      "completion": 60
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-opus-4-8-fast. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Claude Opus 4.8 (Fast) is a speed-optimized variant of Anthropic's most capable generally available Opus model, offering the same 1M token context window and strong performance across long-horizon agentic work and complex coding \u2014 with lower latency.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/claude-opus-4-7",
-    "label": "claude-opus-4-7",
+    "label": "Claude Opus 4.7",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 6,
+      "completion": 30
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-opus-4-7. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Claude Opus 4.7 is Anthropic's most capable generally available model for complex reasoning and agentic coding. It features a 1M token context window, 128K max output tokens, adaptive thinking, and strong multimodal capabilities.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/claude-opus-4-7-fast",
-    "label": "claude-opus-4-7-fast",
+    "label": "Claude Opus 4.7 Fast",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 36,
+      "completion": 180
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-opus-4-7-fast. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Claude Opus 4.7 (Fast) is a speed-optimized variant of Anthropic's most capable generally available model, offering the same 1M token context window and strong performance across complex reasoning and agentic coding \u2014 with lower latency.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/claude-opus-4-6",
-    "label": "claude-opus-4-6",
+    "label": "Claude Opus 4.6",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 6,
+      "completion": 30
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-opus-4-6. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Claude Opus 4.6 is Anthropic's most capable reasoning model, building on Opus 4.5 with enhanced performance across complex software engineering, agentic workflows, and long-horizon tasks. It features a 1M token context window, improved multimodal capabilities, and stronger robustness to prompt injection.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/claude-opus-4-6-fast",
-    "label": "claude-opus-4-6-fast",
+    "label": "Claude Opus 4.6 Fast",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 36,
+      "completion": 180
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-opus-4-6-fast. Powered by Venice."
-  },
-  {
-    "id": "venice/claude-opus-4-5",
-    "label": "claude-opus-4-5",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-opus-4-5. Powered by Venice."
-  },
-  {
-    "id": "venice/claude-sonnet-4-6",
-    "label": "claude-sonnet-4-6",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-sonnet-4-6. Powered by Venice."
-  },
-  {
-    "id": "venice/claude-sonnet-4-5",
-    "label": "claude-sonnet-4-5",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: claude-sonnet-4-5. Powered by Venice."
-  },
-  {
-    "id": "venice/openai-gpt-oss-120b",
-    "label": "openai-gpt-oss-120b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-oss-120b. Powered by Venice."
-  },
-  {
-    "id": "venice/kimi-k2-6",
-    "label": "kimi-k2-6",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: kimi-k2-6. Powered by Venice."
-  },
-  {
-    "id": "venice/kimi-k2-5",
-    "label": "kimi-k2-5",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: kimi-k2-5. Powered by Venice."
-  },
-  {
-    "id": "venice/xiaomi-mimo-v2-omni",
-    "label": "xiaomi-mimo-v2-omni",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: xiaomi-mimo-v2-omni. Powered by Venice."
-  },
-  {
-    "id": "venice/deepseek-v4-pro",
-    "label": "deepseek-v4-pro",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: deepseek-v4-pro. Powered by Venice."
-  },
-  {
-    "id": "venice/deepseek-v4-flash",
-    "label": "deepseek-v4-flash",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: deepseek-v4-flash. Powered by Venice."
-  },
-  {
-    "id": "venice/deepseek-v3.2",
-    "label": "deepseek-v3.2",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: deepseek-v3.2. Powered by Venice."
-  },
-  {
-    "id": "venice/aion-labs-aion-2-0",
-    "label": "aion-labs-aion-2-0",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: aion-labs-aion-2-0. Powered by Venice."
-  },
-  {
-    "id": "venice/llama-3.2-3b",
-    "label": "llama-3.2-3b",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: llama-3.2-3b. Powered by Venice."
-  },
-  {
-    "id": "venice/llama-3.3-70b",
-    "label": "llama-3.3-70b",
-    "provider": "Venice",
-    "tier": "high",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: llama-3.3-70b. Powered by Venice."
-  },
-  {
-    "id": "venice/openai-gpt-52",
-    "label": "openai-gpt-52",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-52. Powered by Venice."
-  },
-  {
-    "id": "venice/openai-gpt-52-codex",
-    "label": "openai-gpt-52-codex",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-52-codex. Powered by Venice."
-  },
-  {
-    "id": "venice/openai-gpt-53-codex",
-    "label": "openai-gpt-53-codex",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-53-codex. Powered by Venice."
-  },
-  {
-    "id": "venice/openai-gpt-54",
-    "label": "openai-gpt-54",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-54. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Claude Opus 4.6 (Fast) is a speed-optimized variant of Anthropic's most capable reasoning model, offering the same 1M token context window and strong performance across complex software engineering, agentic workflows, and long-horizon tasks \u2014 with lower latency.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/openai-gpt-54-pro",
-    "label": "openai-gpt-54-pro",
+    "label": "GPT-5.4 Pro",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 37.5,
+      "completion": 225
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-54-pro. Powered by Venice."
-  },
-  {
-    "id": "venice/openai-gpt-54-mini",
-    "label": "openai-gpt-54-mini",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-54-mini. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT-5.4's unified architecture with enhanced reasoning for complex, high-stakes tasks. It provides a 1M+ token context window (922K input, 128K output) and supports text and image inputs.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/openai-gpt-55",
-    "label": "openai-gpt-55",
+    "label": "GPT-5.5",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 6.25,
+      "completion": 37.5
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-55. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "GPT-5.5 is the latest frontier model in the GPT-5 series with a 1M+ context window, offering improved agentic and long context performance. It uses adaptive reasoning to dynamically allocate computation across tasks.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/openai-gpt-55-pro",
-    "label": "openai-gpt-55-pro",
+    "label": "GPT-5.5 Pro",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 37.5,
+      "completion": 225
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-55-pro. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "GPT-5.5 Pro is OpenAI's most advanced model, building on GPT-5.5's unified architecture with enhanced reasoning for complex, high-stakes tasks. It provides a 1M+ token context window (922K input, 128K output) and supports text and image inputs.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/openai-gpt-4o-2024-11-20",
-    "label": "openai-gpt-4o-2024-11-20",
+    "id": "venice/claude-opus-4-5",
+    "label": "Claude Opus 4.5",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "flagship",
+    "context_length": 198000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 6,
+      "completion": 30
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-4o-2024-11-20. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Claude Opus 4.5 is Anthropic's frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use. It offers strong multimodal capabilities, competitive performance across real-world coding and reasoning benchmarks, and improved robustness to prompt injection.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/openai-gpt-4o-mini-2024-07-18",
-    "label": "openai-gpt-4o-mini-2024-07-18",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: openai-gpt-4o-mini-2024-07-18. Powered by Venice."
-  },
-  {
-    "id": "venice/minimax-m3",
-    "label": "minimax-m3",
+    "id": "venice/grok-4-20",
+    "label": "Grok 4.20",
     "provider": "Venice",
     "tier": "high",
-    "context_length": 128000,
+    "context_length": 2000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.42,
+      "completion": 2.83
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: minimax-m3 for the hard stuff.",
-    "default": true
+    "modality": "text+image->text",
+    "description": "Grok 4.20 is xAI's latest multimodal reasoning model with strong tool use, structured output support, and a 2M-token context window.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/minimax-m25",
-    "label": "minimax-m25",
+    "id": "venice/grok-4-20-multi-agent",
+    "label": "Grok 4.20 Multi-Agent",
     "provider": "Venice",
     "tier": "high",
-    "context_length": 128000,
+    "context_length": 2000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.42,
+      "completion": 2.83
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: minimax-m25. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Grok 4.20 Multi-Agent is a variant of xAI Grok 4.20 designed for collaborative, agent-based workflows. Multiple agents operate in parallel to conduct deep research, coordinate tool use, and synthesize information across complex tasks.",
+    "reasoning": true
   },
   {
-    "id": "venice/minimax-m27",
-    "label": "minimax-m27",
+    "id": "venice/qwen-3-7-max",
+    "label": "Qwen 3.7 Max",
     "provider": "Venice",
     "tier": "high",
-    "context_length": 128000,
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 2.7,
+      "completion": 8.05
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: minimax-m27. Powered by Venice."
+    "modality": "text->text",
+    "description": "Qwen 3.7 Max is the largest model in the Qwen 3.7 series, offering a text-only interface with deep thinking, function calling, and prompt caching. It excels at programming, office and productivity tasks, and long-running autonomous agent workflows.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/mercury-2",
-    "label": "mercury-2",
+    "id": "venice/grok-4-3",
+    "label": "Grok 4.3",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.42,
+      "completion": 2.83
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: mercury-2. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Grok 4.3 is xAI's most intelligent and fastest reasoning model with function calling, structured outputs, and a 1M-token context window. Suited for agentic workflows, instruction-following tasks, and applications requiring high factual accuracy.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/nvidia-nemotron-3-nano-30b-a3b",
-    "label": "nvidia-nemotron-3-nano-30b-a3b",
+    "id": "venice/gemini-3-1-pro-preview",
+    "label": "Gemini 3.1 Pro Preview",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 2.5,
+      "completion": 15
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: nvidia-nemotron-3-nano-30b-a3b. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Gemini 3.1 Pro is the latest evolution of Google flagship frontier model with 1M context, advancing high-precision multimodal reasoning across text, image, and code.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/nvidia-nemotron-3-super-120b-a12b",
-    "label": "nvidia-nemotron-3-super-120b-a12b",
+    "id": "venice/gemini-3-5-flash",
+    "label": "Gemini 3.5 Flash",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.55,
+      "completion": 9.45
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: nvidia-nemotron-3-super-120b-a12b. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Gemini 3.5 Flash is a high speed, high value thinking model with 1M context, designed for agentic workflows, multi-turn chat, and coding assistance. It delivers near Pro level reasoning with substantially lower latency.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/nvidia-nemotron-3-ultra-550b-a55b",
-    "label": "nvidia-nemotron-3-ultra-550b-a55b",
+    "id": "venice/claude-sonnet-4-6",
+    "label": "Claude Sonnet 4.6",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 3.6,
+      "completion": 18
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: nvidia-nemotron-3-ultra-550b-a55b. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Claude Sonnet 4.6 is Anthropic's best combination of speed and intelligence, offering strong performance on coding, reasoning, and general tasks with excellent speed and cost efficiency. It features a 1M token context window and 64K max output tokens.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/nvidia-nemotron-cascade-2-30b-a3b",
-    "label": "nvidia-nemotron-cascade-2-30b-a3b",
+    "id": "venice/deepseek-v4-pro",
+    "label": "DeepSeek V4 Pro",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.73,
+      "completion": 3.796
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: nvidia-nemotron-cascade-2-30b-a3b. Powered by Venice."
+    "modality": "text->text",
+    "description": "DeepSeek V4 Pro is a 1.6T-parameter Mixture-of-Experts model with 49B active parameters and a 1M-token context window. Built for advanced reasoning, coding, and long-horizon agentic workflows with a hybrid attention system for efficient long-context processing.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-venice-uncensored-24b-p",
-    "label": "e2ee-venice-uncensored-24b-p",
+    "id": "venice/openai-gpt-54",
+    "label": "GPT-5.4",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 1000000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 3.13,
+      "completion": 18.8
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-venice-uncensored-24b-p. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "GPT-5.4 is the latest frontier model in the GPT-5 series with a 1M+ context window, offering improved agentic and long context performance. It uses adaptive reasoning to dynamically allocate computation across tasks.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-gemma-3-27b-p",
-    "label": "e2ee-gemma-3-27b-p",
+    "id": "venice/openai-gpt-53-codex",
+    "label": "GPT-5.3 Codex",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 400000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 2.19,
+      "completion": 17.5
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-gemma-3-27b-p. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "GPT-5.3 Codex is OpenAI specialized coding model built on GPT-5.3, optimized for advanced software development, code generation, and technical problem-solving.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-gemma-4-26b-a4b-uncensored-p",
-    "label": "e2ee-gemma-4-26b-a4b-uncensored-p",
+    "id": "venice/qwen-3-6-max-preview",
+    "label": "Qwen 3.6 Max Preview",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 256000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.625,
+      "completion": 9.75
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-gemma-4-26b-a4b-uncensored-p. Powered by Venice."
+    "modality": "text->text",
+    "description": "Qwen 3.6 Max Preview is the largest and most capable variant in Alibaba's Qwen 3.6 series, now available in a preview version with plain-text capabilities. Compared with Qwen3-Max and Qwen 3.6 Plus, it features enhanced vibe coding abilities, more efficient coding agent execution, significantly improved front-end development skills, and further upgraded long-tail knowledge retention.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-glm-4-7-p",
-    "label": "e2ee-glm-4-7-p",
+    "id": "venice/grok-build-0-1",
+    "label": "Grok Build 0.1",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 256000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1,
+      "completion": 2
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-glm-4-7-p. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "xAI's fast coding model trained specifically for agentic coding, currently in early access.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-glm-4-7-flash-p",
-    "label": "e2ee-glm-4-7-flash-p",
+    "id": "venice/openai-gpt-52",
+    "label": "GPT-5.2",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 256000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 2.19,
+      "completion": 17.5
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-glm-4-7-flash-p. Powered by Venice."
+    "modality": "text->text",
+    "description": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context performance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly to simple queries while spending more depth on complex tasks.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-gpt-oss-20b-p",
-    "label": "e2ee-gpt-oss-20b-p",
+    "id": "venice/openai-gpt-52-codex",
+    "label": "GPT-5.2 Codex",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 256000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 2.19,
+      "completion": 17.5
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-gpt-oss-20b-p. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "GPT-5.2 Codex is OpenAI specialized coding model built on GPT-5.2, optimized for advanced software development, code generation, and technical problem-solving.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-gpt-oss-120b-p",
-    "label": "e2ee-gpt-oss-120b-p",
+    "id": "venice/zai-org-glm-5-1",
+    "label": "GLM 5.1",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 200000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.75,
+      "completion": 5.5
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-gpt-oss-120b-p. Powered by Venice."
+    "modality": "text->text",
+    "description": "GLM-5.1 is the next-generation large language model developed by Zhiyuan AI, featuring significantly enhanced reasoning capabilities, improved instruction following, and support for multiple languages. Supports large context windows for processing extensive text and detailed analysis with fast inference speed.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-qwen-2-5-7b-p",
-    "label": "e2ee-qwen-2-5-7b-p",
+    "id": "venice/z-ai-glm-5-turbo",
+    "label": "GLM 5 Turbo",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 200000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.2,
+      "completion": 4
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-qwen-2-5-7b-p. Powered by Venice."
+    "modality": "text->text",
+    "description": "GLM-5 Turbo is a fast inference model from Z.ai tuned for strong performance in agent-driven environments and production coding workflows.",
+    "reasoning": true,
+    "tools": true
   },
   {
-    "id": "venice/e2ee-qwen3-6-35b-a3b-uncensored-p",
-    "label": "e2ee-qwen3-6-35b-a3b-uncensored-p",
+    "id": "venice/z-ai-glm-5v-turbo",
+    "label": "GLM 5V Turbo",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "high",
+    "context_length": 200000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 1.5,
+      "completion": 5
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-qwen3-6-35b-a3b-uncensored-p. Powered by Venice."
-  },
-  {
-    "id": "venice/e2ee-qwen3-30b-a3b-p",
-    "label": "e2ee-qwen3-30b-a3b-p",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-qwen3-30b-a3b-p. Powered by Venice."
-  },
-  {
-    "id": "venice/e2ee-qwen3-vl-30b-a3b-p",
-    "label": "e2ee-qwen3-vl-30b-a3b-p",
-    "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
-    "pricing": {
-      "prompt": 0,
-      "completion": 0
-    },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-qwen3-vl-30b-a3b-p. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "GLM-5V-Turbo is Z.ai's first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks with image, video, and text inputs.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/e2ee-glm-5-1",
-    "label": "e2ee-glm-5-1",
+    "label": "GLM 5.1",
+    "provider": "Venice",
+    "tier": "high",
+    "context_length": 200000,
+    "pricing": {
+      "prompt": 1.1,
+      "completion": 4.15
+    },
+    "modality": "text->text",
+    "description": "GLM 5.1 running in a Trusted Execution Environment (TEE). Hardware attestation evidence is available for independent verification of enclave identity and configuration.",
+    "reasoning": true
+  },
+  {
+    "id": "venice/zai-org-glm-5",
+    "label": "GLM 5",
+    "provider": "Venice",
+    "tier": "high",
+    "context_length": 198000,
+    "pricing": {
+      "prompt": 1,
+      "completion": 3.2
+    },
+    "modality": "text->text",
+    "description": "GLM-5 is the next-generation large language model developed by Zhiyuan AI, featuring significantly enhanced reasoning capabilities, improved instruction following, and support for multiple languages. Supports large context windows for processing extensive text and detailed analysis.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/claude-sonnet-4-5",
+    "label": "Claude Sonnet 4.5",
+    "provider": "Venice",
+    "tier": "high",
+    "context_length": 198000,
+    "pricing": {
+      "prompt": 3.75,
+      "completion": 18.75
+    },
+    "modality": "text+image->text",
+    "description": "Claude Sonnet 4.5 is Anthropic's balanced model offering strong performance on coding, reasoning, and general tasks with good speed and cost efficiency.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/hermes-3-llama-3.1-405b",
+    "label": "Hermes 3 Llama 3.1 405b",
+    "provider": "Venice",
+    "tier": "high",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 1.1,
+      "completion": 3
+    },
+    "modality": "text->text",
+    "description": "Hermes 3 405B is a frontier level, full parameter finetune of the Llama-3.1 405B foundation model, focused on aligning LLMs to the user, with powerful steering capabilities and control given to the end user."
+  },
+  {
+    "id": "venice/aion-labs-aion-2-0",
+    "label": "Aion 2.0",
+    "provider": "Venice",
+    "tier": "high",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 1,
+      "completion": 2
+    },
+    "modality": "text->text",
+    "description": "Aion 2.0 is a DeepSeek V3.2-based model fine-tuned for immersive roleplaying and long-form storytelling. It excels at introducing tension, crises, and meaningful conflict into narratives, keeping stories unpredictable and deeply engaging. The model handles mature and darker themes with exceptional nuance, avoiding sanitized or surface-level treatment. Available as an early alpha\u2014your feedback helps shape its development.",
+    "reasoning": true
+  },
+  {
+    "id": "venice/openai-gpt-4o-2024-11-20",
+    "label": "GPT-4o",
+    "provider": "Venice",
+    "tier": "high",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 3.125,
+      "completion": 12.5
+    },
+    "modality": "text+image->text",
+    "description": "OpenAI's multimodal flagship model with vision capabilities, strong reasoning, and broad knowledge. Popular for its balanced performance across tasks. Version: 2024-11-20.",
+    "tools": true
+  },
+  {
+    "id": "venice/e2ee-glm-4-7-p",
+    "label": "GLM 4.7",
+    "provider": "Venice",
+    "tier": "high",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 1.1,
+      "completion": 4.15
+    },
+    "modality": "text->text",
+    "description": "GLM 4.7 running in a Trusted Execution Environment (TEE). Z.AI's flagship model with enhanced programming capabilities and stable multi-step reasoning, with hardware attestation evidence available for independent verification.",
+    "reasoning": true
+  },
+  {
+    "id": "venice/qwen-3-7-plus",
+    "label": "Qwen 3.7 Plus",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 1000000,
+    "pricing": {
+      "prompt": 0.5,
+      "completion": 2
+    },
+    "modality": "text+image->text",
+    "description": "Qwen 3.7 Plus is Alibaba's latest flagship reasoning model with exceptional performance across coding, reasoning, and general knowledge tasks. Features mixed reasoning, function calling, and multimodal input support.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/qwen-3-6-plus",
+    "label": "Qwen 3.6 Plus Uncensored",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 1000000,
+    "pricing": {
+      "prompt": 0.625,
+      "completion": 3.75
+    },
+    "modality": "text+image->text",
+    "description": "Qwen 3.6 Plus Uncensored is Alibaba's latest flagship reasoning model with exceptional performance across coding, reasoning, and general knowledge tasks. Features mixed reasoning, function calling, and multimodal input support.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/minimax-m3",
+    "label": "MiniMax M3",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 500000,
+    "pricing": {
+      "prompt": 0.3,
+      "completion": 1.2
+    },
+    "modality": "text+image->text",
+    "description": "MiniMax-M3 is MiniMax's latest frontier model for coding, agentic workflows, and complex reasoning tasks.",
+    "reasoning": true,
+    "tools": true,
+    "default": true
+  },
+  {
+    "id": "venice/openai-gpt-54-mini",
+    "label": "GPT-5.4 Mini",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 400000,
+    "pricing": {
+      "prompt": 0.9375,
+      "completion": 5.625
+    },
+    "modality": "text+image->text",
+    "description": "GPT-5.4 Mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding, and tool use.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-6-27b",
+    "label": "Qwen 3.6 27B",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.325,
+      "completion": 3.25
+    },
+    "modality": "text+image->text",
+    "description": "The Qwen 3.6 27B native vision-language dense model builds upon the 3.5-27B version, with key improvements in agentic coding capabilities and enhanced STEM reasoning and inference skills. In the vision modality, it demonstrates significant advances in spatial intelligence, object localization, and detection, while video understanding, document OCR, and visual agent capabilities continue to improve steadily.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-5-35b-a3b",
+    "label": "Qwen 3.5 35B A3B",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.3125,
+      "completion": 1.25
+    },
+    "modality": "text+image->text",
+    "description": "Qwen 3.5 35B A3B is a highly efficient MoE model with 35B total parameters and only 3B active parameters. It surpasses the larger Qwen3-235B-A22B while being 6.7x smaller, excelling at reasoning, coding, and general knowledge tasks.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-next-80b",
+    "label": "Qwen 3 Next 80b",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.35,
+      "completion": 1.9
+    },
+    "modality": "text->text",
+    "description": "Optimized for speed and efficiency.",
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-vl-235b-a22b",
+    "label": "Qwen3 VL 235B",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.25,
+      "completion": 1.5
+    },
+    "modality": "text+image->text",
+    "description": "Qwen3-VL 235B vision-language model with MoE architecture. The most powerful VL model in the Qwen series with superior visual perception, OCR, and multimodal reasoning.",
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-coder-480b-a35b-instruct-turbo",
+    "label": "Qwen 3 Coder 480B Turbo",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.35,
+      "completion": 1.5
+    },
+    "modality": "text->text",
+    "description": "Turbo variant of Qwen3 Coder 480B, optimized for faster inference on code tasks.",
+    "tools": true
+  },
+  {
+    "id": "venice/arcee-trinity-large-thinking",
+    "label": "Trinity Large Thinking",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.3125,
+      "completion": 1.125
+    },
+    "modality": "text->text",
+    "description": "Trinity Large Thinking is a reasoning-optimized variant of Arcee AI's Trinity-Large family, a 398B-parameter sparse Mixture-of-Experts model with approximately 13B active parameters per token, post-trained with extended chain-of-thought reasoning and agentic RL. It supports tool calling, multilingual input, and 256K context windows.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/gemini-3-flash-preview",
+    "label": "Gemini 3 Flash Preview",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.7,
+      "completion": 3.75
+    },
+    "modality": "text+image->text",
+    "description": "Gemini 3 Flash Preview is a high speed, high value thinking model designed for agentic workflows, multi-turn chat, and coding assistance. It delivers near Pro level reasoning with substantially lower latency.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/kimi-k2-6",
+    "label": "Kimi K2.6",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.85,
+      "completion": 4.655
+    },
+    "modality": "text+image->text",
+    "description": "Kimi K2.6 is an open-source, native multimodal agentic model from Moonshot AI with 1T total parameters and 32B active parameters. It excels at long-horizon coding, coding-driven design, agent swarm orchestration, and proactive autonomous execution with 256K context windows.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/kimi-k2-5",
+    "label": "Kimi K2.5",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.56,
+      "completion": 3.5
+    },
+    "modality": "text+image->text",
+    "description": "Kimi K2.5 is Moonshot AIs most advanced open reasoning model, featuring trillion-parameter Mixture-of-Experts architecture with 32B active parameters and 256K context windows.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/xiaomi-mimo-v2-omni",
+    "label": "MiMo-V2-Omni",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.5,
+      "completion": 2.5
+    },
+    "modality": "text+image->text",
+    "description": "MiMo-V2-Omni is Xiaomi frontier omni-modal model with native image, video, and audio understanding for agentic real-world workflows.",
+    "tools": true
+  },
+  {
+    "id": "venice/nvidia-nemotron-3-ultra-550b-a55b",
+    "label": "NVIDIA Nemotron 3 Ultra",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.625,
+      "completion": 3.125
+    },
+    "modality": "text+image->text",
+    "description": "NVIDIA Nemotron 3 Ultra is built for frontier reasoning, orchestration, coding agents, deep research, and complex enterprise workflows. It delivers up to 5x faster inference and up to 30% lower cost for agentic workloads while supporting up to 1M token context.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/zai-org-glm-4.6",
+    "label": "GLM 4.6",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 198000,
+    "pricing": {
+      "prompt": 0.85,
+      "completion": 2.75
+    },
+    "modality": "text->text",
+    "description": "GLM-4.6 is a large language model developed by Zhiyuan AI, featuring strong reasoning capabilities and support for multiple languages. Supports the largest context window for processing extensive text and detailed analysis.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/zai-org-glm-4.7",
+    "label": "GLM 4.7",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 198000,
+    "pricing": {
+      "prompt": 0.55,
+      "completion": 2.65
+    },
+    "modality": "text->text",
+    "description": "GLM-4.7 is a large language model developed by Zhiyuan AI, featuring strong reasoning capabilities and support for multiple languages. Supports the largest context window for processing extensive text and detailed analysis.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/minimax-m25",
+    "label": "MiniMax M2.5",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 198000,
+    "pricing": {
+      "prompt": 0.34,
+      "completion": 1.19
+    },
+    "modality": "text->text",
+    "description": "MiniMax-M2.5 is a state-of-the-art large language model optimized for coding, agentic workflows, and modern application development with enhanced reasoning capabilities.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/minimax-m27",
+    "label": "MiniMax M2.7",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 198000,
+    "pricing": {
+      "prompt": 0.375,
+      "completion": 1.5
+    },
+    "modality": "text->text",
+    "description": "MiniMax-M2.7 is a next-generation large language model designed for autonomous, real-world productivity with advanced agentic capabilities through multi-agent collaboration.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/deepseek-v3.2",
+    "label": "DeepSeek V3.2",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 160000,
+    "pricing": {
+      "prompt": 0.33,
+      "completion": 0.48
+    },
+    "modality": "text->text",
+    "description": "DeepSeek-V3.2 is an efficient large language model with DeepSeek Sparse Attention (DSA) for long contexts. It features strong reasoning and tool-use skills, achieving top results on the 2025 IMO and IOI.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/venice-uncensored-1-2",
+    "label": "Venice Uncensored 1.2",
     "provider": "Venice",
     "tier": "mid",
     "context_length": 128000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 0.2,
+      "completion": 0.9
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-glm-5-1. Powered by Venice."
+    "modality": "text+image->text",
+    "description": "Venice Uncensored 1.2 is designed for maximum creative freedom and authentic interaction. Built for open-ended exploration, roleplay, and unfiltered dialogue with improved capabilities over 1.1.",
+    "tools": true
+  },
+  {
+    "id": "venice/venice-uncensored-role-play",
+    "label": "Venice Role Play Uncensored",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.5,
+      "completion": 2
+    },
+    "modality": "text+image->text",
+    "description": "Optimized for creative roleplay scenarios with maximum freedom. Designed for immersive storytelling, character interactions, and open-ended creative writing.",
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-5-397b-a17b",
+    "label": "Qwen 3.5 397B",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.75,
+      "completion": 4.5
+    },
+    "modality": "text+image->text",
+    "description": "Qwen 3.5 is Alibaba flagship reasoning model featuring a 397B parameter Mixture-of-Experts architecture with 17B active parameters. It excels at complex reasoning, coding, and general knowledge tasks.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-235b-a22b-thinking-2507",
+    "label": "Qwen 3 235B A22B Thinking 2507",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.45,
+      "completion": 3.5
+    },
+    "modality": "text->text",
+    "description": "Built for in-depth research and handling long, complex documents. Ideal for technical work, multimodal input, and high-precision tasks.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/llama-3.3-70b",
+    "label": "Llama 3.3 70B",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.7,
+      "completion": 2.8
+    },
+    "modality": "text->text",
+    "description": "Venice model: llama-3.3-70b",
+    "tools": true
+  },
+  {
+    "id": "venice/mercury-2",
+    "label": "Mercury 2",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.3125,
+      "completion": 0.9375
+    },
+    "modality": "text->text",
+    "description": "Mercury 2 is a diffusion-based reasoning LLM from Inception, delivering over 1,000 tokens per second \u2014 5x faster than leading speed-optimized models \u2014 with strong reasoning, tool use, and structured output capabilities.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/e2ee-qwen3-6-35b-a3b-uncensored-p",
+    "label": "Qwen3.6 35B A3B Uncensored",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.38,
+      "completion": 1.88
+    },
+    "modality": "text->text",
+    "description": "Qwen3.6 35B A3B Uncensored running in a Trusted Execution Environment (TEE). An uncensored variant of Alibaba's Qwen3.6 MoE model with 35B total parameters and ~3B active, supporting 262K context and multimodal input across text, images, and video, with hardware attestation evidence available for independent verification."
+  },
+  {
+    "id": "venice/e2ee-qwen3-vl-30b-a3b-p",
+    "label": "Qwen3 VL 30B A3B",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.25,
+      "completion": 0.9
+    },
+    "modality": "text+image->text",
+    "description": "Qwen3 VL 30B A3B running in a Trusted Execution Environment (TEE). A multimodal model unifying text generation with visual understanding for images and videos, with hardware attestation evidence available for independent verification.",
+    "tools": true
+  },
+  {
+    "id": "venice/e2ee-venice-uncensored-24b-p",
+    "label": "Venice Uncensored 1.1",
+    "provider": "Venice",
+    "tier": "mid",
+    "context_length": 32000,
+    "pricing": {
+      "prompt": 0.25,
+      "completion": 1.15
+    },
+    "modality": "text->text",
+    "description": "Venice Uncensored 1.1 running in a Trusted Execution Environment (TEE). Hardware attestation evidence is available for independent verification of enclave identity and configuration."
+  },
+  {
+    "id": "venice/deepseek-v4-flash",
+    "label": "DeepSeek V4 Flash",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 1000000,
+    "pricing": {
+      "prompt": 0.17,
+      "completion": 0.35
+    },
+    "modality": "text->text",
+    "description": "DeepSeek V4 Flash is an efficiency-optimized 284B-parameter Mixture-of-Experts model with 13B active parameters and a 1M-token context window. Tuned for fast inference and high-throughput workloads while maintaining strong reasoning and coding performance.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-5-9b",
+    "label": "Qwen 3.5 9B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.1,
+      "completion": 0.15
+    },
+    "modality": "text+image->text",
+    "description": "A 9B dense model with 262K native context window (extendable to 1M). Features Gated DeltaNet hybrid attention architecture for efficient long-context processing. Supports 201 languages, thinking/reasoning mode, and function calling.",
+    "reasoning": true,
+    "tools": true,
+    "expertDefault": true
+  },
+  {
+    "id": "venice/google-gemma-4-26b-a4b-it",
+    "label": "Google Gemma 4 26B A4B Instruct",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.1625,
+      "completion": 0.5
+    },
+    "modality": "text+image->text",
+    "description": "Gemma 4 26B A4B is a Mixture-of-Experts model from Google DeepMind with 26B total parameters and only 4B active per token, offering fast inference at high quality. It handles text, image, and video input, supports 256K context, function calling, and reasoning with configurable thinking modes.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/google-gemma-4-31b-it",
+    "label": "Google Gemma 4 31B Instruct",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.12,
+      "completion": 0.36
+    },
+    "modality": "text+image->text",
+    "description": "Gemma 4 31B is a dense model from Google DeepMind with 31B parameters, delivering frontier-level reasoning performance. It handles text, image, and video input, supports 256K context, function calling, and configurable thinking modes.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/gemma-4-uncensored",
+    "label": "Gemma 4 Uncensored",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.1625,
+      "completion": 0.5
+    },
+    "modality": "text+image->text",
+    "description": "Gemma 4 Uncensored is an uncensored variant of Google Gemma 4 26B, a Mixture-of-Experts model with 26B total parameters and only 4B active per token. Fine-tuned for uncensored chat without content filtering, it supports 256K context, coding, and general-purpose conversation.",
+    "tools": true
+  },
+  {
+    "id": "venice/mistral-small-3-2-24b-instruct",
+    "label": "Mistral Small 3.2 24B Instruct",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.0938,
+      "completion": 0.25
+    },
+    "modality": "text->text",
+    "description": "Mistral Small 3.2 is a 24B parameter model optimized for efficiency and performance. Ideal for general-purpose tasks with balanced speed and capability.",
+    "tools": true
+  },
+  {
+    "id": "venice/mistral-small-2603",
+    "label": "Mistral Small 4",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.1875,
+      "completion": 0.75
+    },
+    "modality": "text+image->text",
+    "description": "Mistral Small 4 unifies instruction following, reasoning, coding, and vision in a single 119B MoE model with 256K context and configurable reasoning effort.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/nvidia-nemotron-3-super-120b-a12b",
+    "label": "NVIDIA Nemotron 3 Super 120B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.125,
+      "completion": 0.625
+    },
+    "modality": "text->text",
+    "description": "NVIDIA Nemotron 3 Super is a hybrid Mixture-of-Experts (MoE) model engineered for highest compute efficiency and accuracy in multi-agent applications and specialized agentic systems. It is optimized to run many collaborating agents per application on a single GPU, delivering high accuracy for reasoning, tool use, and instruction following.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/nvidia-nemotron-cascade-2-30b-a3b",
+    "label": "Nemotron Cascade 2 30B A3B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.14,
+      "completion": 0.8
+    },
+    "modality": "text->text",
+    "description": "Nemotron Cascade 2 30B A3B is a reasoning-optimized language model from NVIDIA, designed for efficient inference with strong reasoning capabilities across complex tasks.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/e2ee-qwen3-30b-a3b-p",
+    "label": "Qwen3 30B A3B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 256000,
+    "pricing": {
+      "prompt": 0.19,
+      "completion": 0.69
+    },
+    "modality": "text->text",
+    "description": "Qwen3 30B A3B running in a Trusted Execution Environment (TEE). A MoE model with 30.5B total parameters and 3.3B activated per inference, supporting ultra-long 256K context, with hardware attestation evidence available for independent verification.",
+    "tools": true
+  },
+  {
+    "id": "venice/olafangensan-glm-4.7-flash-heretic",
+    "label": "GLM 4.7 Flash Heretic",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 200000,
+    "pricing": {
+      "prompt": 0.14,
+      "completion": 0.8
+    },
+    "modality": "text->text",
+    "description": "GLM-4.7-Flash-Heretic is an uncensored experimental variant of GLM-4.7-Flash, optimized for creative freedom and unfiltered dialogue with fast inference speed.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/google-gemma-3-27b-it",
+    "label": "Google Gemma 3 27B Instruct",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 198000,
+    "pricing": {
+      "prompt": 0.12,
+      "completion": 0.2
+    },
+    "modality": "text+image->text",
+    "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities, including structured outputs and function calling. Gemma 3 27B is Google's latest open source model, successor to Gemma 2.",
+    "tools": true
+  },
+  {
+    "id": "venice/e2ee-glm-4-7-flash-p",
+    "label": "GLM 4.7 Flash",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 198000,
+    "pricing": {
+      "prompt": 0.13,
+      "completion": 0.55
+    },
+    "modality": "text->text",
+    "description": "GLM 4.7 Flash running in a Trusted Execution Environment (TEE). A 30B-class model optimized for agentic coding with strong long-horizon task planning, with hardware attestation evidence available for independent verification.",
+    "reasoning": true
+  },
+  {
+    "id": "venice/zai-org-glm-4.7-flash",
+    "label": "GLM 4.7 Flash",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.125,
+      "completion": 0.5
+    },
+    "modality": "text->text",
+    "description": "GLM-4.7-Flash is a fast inference variant of GLM-4.7, optimized for speed while maintaining strong reasoning capabilities. Ideal for applications requiring quick responses with good quality.",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/qwen3-235b-a22b-instruct-2507",
+    "label": "Qwen 3 235B A22B Instruct 2507",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.15,
+      "completion": 0.75
+    },
+    "modality": "text->text",
+    "description": "Built for in-depth research and handling long, complex documents. Ideal for technical work, multimodal input, and high-precision tasks.",
+    "tools": true
+  },
+  {
+    "id": "venice/openai-gpt-oss-120b",
+    "label": "OpenAI GPT OSS 120B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.07,
+      "completion": 0.3
+    },
+    "modality": "text->text",
+    "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. The model supports configurable reasoning depth, full chain-of-thought access, and native tool use, including function calling, browsing, and structured output generation",
+    "reasoning": true,
+    "tools": true
+  },
+  {
+    "id": "venice/llama-3.2-3b",
+    "label": "Llama 3.2 3B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.15,
+      "completion": 0.6
+    },
+    "modality": "text->text",
+    "description": "Venice model: llama-3.2-3b",
+    "tools": true
+  },
+  {
+    "id": "venice/openai-gpt-4o-mini-2024-07-18",
+    "label": "GPT-4o Mini",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.1875,
+      "completion": 0.75
+    },
+    "modality": "text+image->text",
+    "description": "OpenAI's cost-efficient small model that delivers GPT-4 level intelligence at a fraction of the cost. Ideal for high-volume applications requiring strong reasoning. Version: 2024-07-18.",
+    "tools": true
+  },
+  {
+    "id": "venice/nvidia-nemotron-3-nano-30b-a3b",
+    "label": "NVIDIA Nemotron 3 Nano 30B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.075,
+      "completion": 0.3
+    },
+    "modality": "text->text",
+    "description": "NVIDIA Nemotron 3 Nano 30B is a compact and efficient language model from NVIDIA, optimized for fast inference while maintaining strong performance across diverse tasks.",
+    "tools": true
+  },
+  {
+    "id": "venice/e2ee-gpt-oss-20b-p",
+    "label": "GPT OSS 20B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.05,
+      "completion": 0.19
+    },
+    "modality": "text->text",
+    "description": "GPT OSS 20B running in a Trusted Execution Environment (TEE). OpenAI's compact open-weight 21B MoE model with 3.6B active parameters, optimized for lower-latency inference, with hardware attestation evidence available for independent verification.",
+    "reasoning": true
+  },
+  {
+    "id": "venice/e2ee-gpt-oss-120b-p",
+    "label": "GPT OSS 120B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 128000,
+    "pricing": {
+      "prompt": 0.13,
+      "completion": 0.65
+    },
+    "modality": "text->text",
+    "description": "GPT OSS 120B running in a Trusted Execution Environment (TEE). OpenAI's open-weight 117B-parameter MoE model with configurable reasoning depth and native tool use, with hardware attestation evidence available for independent verification.",
+    "reasoning": true
+  },
+  {
+    "id": "venice/e2ee-gemma-4-26b-a4b-uncensored-p",
+    "label": "Gemma 4 26B A4B Uncensored",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 64000,
+    "pricing": {
+      "prompt": 0.19,
+      "completion": 0.88
+    },
+    "modality": "text->text",
+    "description": "Gemma 4 26B A4B Uncensored running in a Trusted Execution Environment (TEE). An uncensored variant of Google's Gemma 4 MoE model with 25.2B total / 3.8B active parameters, supporting multimodal input across text and images, with hardware attestation evidence available for independent verification."
+  },
+  {
+    "id": "venice/e2ee-gemma-3-27b-p",
+    "label": "Gemma 3 27B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 40000,
+    "pricing": {
+      "prompt": 0.14,
+      "completion": 0.5
+    },
+    "modality": "text->text",
+    "description": "Gemma 3 27B running in a Trusted Execution Environment (TEE). Google's multimodal model supporting vision-language input with 140+ language understanding, with hardware attestation evidence available for independent verification."
+  },
+  {
+    "id": "venice/e2ee-qwen-2-5-7b-p",
+    "label": "Qwen 2.5 7B",
+    "provider": "Venice",
+    "tier": "budget",
+    "context_length": 32000,
+    "pricing": {
+      "prompt": 0.05,
+      "completion": 0.13
+    },
+    "modality": "text->text",
+    "description": "Qwen 2.5 7B Instruct running in a Trusted Execution Environment (TEE). A compact model with strong coding, math, and multilingual capabilities supporting 29+ languages, with hardware attestation evidence available for independent verification."
   },
   {
     "id": "venice/e2ee-qwen3-6-35b-a3b",
-    "label": "e2ee-qwen3-6-35b-a3b",
+    "label": "Qwen 3.6 35B A3B FP8",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "budget",
+    "context_length": 32000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 0.182,
+      "completion": 1.18
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-qwen3-6-35b-a3b. Powered by Venice."
+    "modality": "text->text",
+    "description": "Qwen 3.6 35B A3B FP8 running in a Trusted Execution Environment (TEE). A fast mixture-of-experts model with ~3B active parameters per token. Hardware attestation evidence is available for independent verification of enclave identity and configuration.",
+    "reasoning": true,
+    "tools": true
   },
   {
     "id": "venice/e2ee-gemma-4-31b",
-    "label": "e2ee-gemma-4-31b",
+    "label": "Gemma 4 31B Instruct",
     "provider": "Venice",
-    "tier": "mid",
-    "context_length": 128000,
+    "tier": "budget",
+    "context_length": 32000,
     "pricing": {
-      "prompt": 0,
-      "completion": 0
+      "prompt": 0.139,
+      "completion": 0.43
     },
-    "modality": "text+image+file->text",
-    "description": "Venice model: e2ee-gemma-4-31b. Powered by Venice."
+    "modality": "text->text",
+    "description": "Gemma 4 31B Instruct running in a Trusted Execution Environment (TEE). Hardware attestation evidence is available for independent verification of enclave identity and configuration.",
+    "reasoning": true
   }
 ]

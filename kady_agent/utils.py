@@ -215,34 +215,67 @@ def sync_missing_scientific_skills(
 
 
 def fetch_venice_models(api_key: str | None = None) -> list[dict]:
+    """Fetch text models from Venice AI.
+
+    Returns the raw ``data`` array from
+    ``GET https://api.venice.ai/api/v1/models?type=text``.
+    """
     import httpx
-    import os
+
     key = api_key or os.getenv("VENICE_API_KEY")
     if not key:
         print("No VENICE_API_KEY provided.")
         return []
 
     try:
-        resp = httpx.get("https://api.venice.ai/api/v1/models", headers={"Authorization": f"Bearer {key}"})
+        resp = httpx.get(
+            "https://api.venice.ai/api/v1/models?type=text",
+            headers={"Authorization": f"Bearer {key}"},
+            timeout=15.0,
+        )
         resp.raise_for_status()
     except Exception as e:
         print(f"Error fetching Venice models: {e}")
         return []
 
-    return resp.json().get('data', [])
+    return resp.json().get("data", [])
+
+
+def _venice_pricing_tier(prompt_price: float) -> str:
+    """Classify a Venice model into a UI tier by input price per 1M tokens."""
+    if prompt_price < 0.20:
+        return "budget"
+    if prompt_price < 1.00:
+        return "mid"
+    if prompt_price < 5.00:
+        return "high"
+    return "flagship"
+
+
+def _venice_modality(spec: dict) -> str:
+    """Build the modality string from Venice capabilities."""
+    caps = spec.get("capabilities") or {}
+    parts = ["text"]
+    if caps.get("supportsVision"):
+        parts.append("image")
+    return "+".join(parts) + "->text"
 
 
 def update_models_json(
     output_path: str = "web/src/data/models.json",
     default_model_id: str = "minimax-m3",
-    expert_default_model_id: str = "qwen3.5-9b",
+    expert_default_model_id: str = "qwen3-5-9b",
     api_key: str | None = None,
 ) -> None:
     """Fetch models from Venice and overwrite the frontend models.json.
 
+    Uses the real ``model_spec`` fields returned by the Venice API so
+    context lengths, pricing, capabilities, and descriptions are accurate.
+
     Args:
         output_path: Path to the output JSON file.
-        default_model_id: The Venice model ID to mark as the default.
+        default_model_id: The Venice model ID to mark as the default
+            orchestrator model.
         expert_default_model_id: The Venice model ID to mark as the expert
             default in the frontend picker.
         api_key: Venice API key (falls back to VENICE_API_KEY env var).
@@ -250,30 +283,61 @@ def update_models_json(
     raw_models = fetch_venice_models(api_key=api_key)
     out = Path(output_path)
     entries = []
-    
+
     for m in raw_models:
-        m_id = m['id']
+        m_id = m["id"]
+        spec = m.get("model_spec") or {}
+        pricing = spec.get("pricing") or {}
+        caps = spec.get("capabilities") or {}
+
+        # Skip offline models
+        if spec.get("offline"):
+            continue
+
+        # Pricing per 1M tokens (Venice returns per 1M already)
+        p_in = pricing.get("input", {}).get("usd", 0)
+        p_out = pricing.get("output", {}).get("usd", 0)
+
+        # Use the display name from model_spec, fall back to the raw id
+        label = spec.get("name") or m_id
+
+        # Context length — prefer availableContextTokens, then top-level
+        ctx = spec.get("availableContextTokens") or m.get("context_length") or 128000
+
         entry = {
             "id": f"venice/{m_id}",
-            "label": m_id,
+            "label": label,
             "provider": "Venice",
-            "tier": "high" if "minimax" in m_id.lower() or "llama-3.3" in m_id.lower() else "mid",
-            "context_length": m.get('context_length', 128000),
-            "pricing": {"prompt": 0, "completion": 0},
-            "modality": "text+image+file->text",
-            "description": m.get('description', f"Venice model: {m_id}. Powered by Venice.")
+            "tier": _venice_pricing_tier(p_in),
+            "context_length": ctx,
+            "pricing": {"prompt": round(p_in, 4), "completion": round(p_out, 4)},
+            "modality": _venice_modality(spec),
+            "description": spec.get("description") or f"Venice model: {m_id}",
         }
-        if default_model_id in m_id.lower():
+
+        # Tag capabilities the frontend may want to display
+        if caps.get("supportsReasoning"):
+            entry["reasoning"] = True
+        if caps.get("supportsFunctionCalling"):
+            entry["tools"] = True
+
+        if m_id == default_model_id:
             entry["default"] = True
-        if expert_default_model_id in m_id.lower():
+        if m_id == expert_default_model_id:
             entry["expertDefault"] = True
         entries.append(entry)
 
-    # ensure defaults
-    if entries and not any(e.get('default') for e in entries):
-        entries[0]['default'] = True
-    if len(entries) > 1 and not any(e.get('expertDefault') for e in entries):
-        entries[1]['expertDefault'] = True
+    # Ensure at least one default & expert default exist
+    if entries and not any(e.get("default") for e in entries):
+        entries[0]["default"] = True
+    if len(entries) > 1 and not any(e.get("expertDefault") for e in entries):
+        entries[1]["expertDefault"] = True
+
+    # Sort: flagship first, then high/mid/budget, largest context first
+    tier_order = {"flagship": 0, "high": 1, "mid": 2, "budget": 3}
+    entries.sort(
+        key=lambda e: (tier_order.get(e["tier"], 99), -e["context_length"])
+    )
 
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(entries, indent=2) + "\n", encoding="utf-8")
