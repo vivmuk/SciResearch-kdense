@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VivResearch powered by K-dense",
+  title: "Vivek's Scientific Research by K-dense",
   description: "Multi-agent research assistant",
 };
 

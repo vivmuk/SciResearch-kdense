@@ -379,7 +379,7 @@ export default function ChatPage() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/kdense-logo.png"
-              alt="VivResearch powered by K-dense"
+              alt="Vivek's Scientific Research by K-dense"
               className="h-7 w-auto object-contain dark:invert"
             />
             <span className="text-sm font-semibold tracking-tight text-foreground/80">BYOK</span>
@@ -387,7 +387,7 @@ export default function ChatPage() {
           <InfoTooltip
             content={
               <>
-                <b>VivResearch powered by K-dense v{APP_VERSION}</b>
+                <b>Vivek&apos;s Scientific Research by K-dense v{APP_VERSION}</b>
                 <br />
                 Bring-your-own-key research assistant. All API calls use keys from your{" "}
                 <kbd>.env</kbd> file and run on your machine.
@@ -414,7 +414,7 @@ export default function ChatPage() {
           <ProjectSwitcher />
         </div>
         <p className="absolute left-1/2 -translate-x-1/2 text-[11px] text-muted-foreground/60 tracking-wide select-none">
-          Brought to you by VivResearch.
+          Vivek&apos;s Scientific Research by K-dense
         </p>
         <div className="flex items-center gap-2">
           <SessionCostPill

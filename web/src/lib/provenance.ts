@@ -286,7 +286,7 @@ export function exportMethodsSectionFromManifests(
 
   if (models.size > 0) {
     parts.push(
-      `Analysis was conducted using ${formatList([...models])} via the VivResearch powered by K-dense platform (version ${formatList([...kadyVersions])}${commits.size > 0 ? `, git ${formatList([...commits].map((c) => c.slice(0, 7)))}` : ""}).`
+      `Analysis was conducted using ${formatList([...models])} via the Vivek's Scientific Research by K-dense platform (version ${formatList([...kadyVersions])}${commits.size > 0 ? `, git ${formatList([...commits].map((c) => c.slice(0, 7)))}` : ""}).`
     );
   }
 
@@ -394,7 +394,7 @@ export function exportMethodsSection(events: ProvenanceEvent[]): string {
 
   if (models.length > 0) {
     parts.push(
-      `Analysis was conducted using ${formatList(models)} via the VivResearch powered by K-dense platform.`
+      `Analysis was conducted using ${formatList(models)} via the Vivek's Scientific Research by K-dense platform.`
     );
   }
 
