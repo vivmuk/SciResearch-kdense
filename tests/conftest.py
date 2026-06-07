@@ -127,8 +127,8 @@ def _require_command(name: str) -> None:
 def require_live_environment() -> None:
     for command in ("uv", "node", "npm", "gemini"):
         _require_command(command)
-    if not (os.environ.get("OPENROUTER_API_KEY") or os.environ.get("OR_API_KEY")):
-        raise AssertionError("OPENROUTER_API_KEY or OR_API_KEY is required for live E2E tests")
+    if not os.environ.get("VENICE_API_KEY"):
+        raise AssertionError("VENICE_API_KEY is required for live E2E tests")
 
 
 @pytest.fixture(scope="session")

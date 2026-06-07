@@ -26,7 +26,7 @@ async def test_runs_manifest_costs_citations_and_skills(
         session_id="session-api",
         turn_id=turn_id,
         role="orchestrator",
-        model="openrouter/vendor/model",
+        model="venice/minimax-m3",
         usage_dict={"prompt_tokens": 1, "completion_tokens": 1},
         cost_usd=0.01,
         project_id=active_project,

@@ -14,10 +14,10 @@ def test_cli_model_routing_and_workdir_safety(active_project: str) -> None:
     nested = sandbox / "nested"
     nested.mkdir(parents=True)
 
-    assert gemini_cli._cli_can_route("gemini-3-pro")
+    assert gemini_cli._cli_can_route("venice/minimax-m3")
     assert gemini_cli._cli_can_route("ollama/llama3")
-    assert gemini_cli._cli_can_route("openrouter/vendor/model")
     assert not gemini_cli._cli_can_route("anthropic/claude")
+    assert not gemini_cli._cli_can_route("gemini-3-pro")
 
     assert gemini_cli._resolve_working_directory("nested", sandbox) == nested.resolve()
     assert gemini_cli._resolve_working_directory("/tmp", sandbox) == sandbox
@@ -84,7 +84,7 @@ async def test_delegate_task_sets_env_and_attaches_manifest(
     state = {
         "_sessionId": "session-gemini",
         "_turnId": turn_id,
-        "_expertModel": "openrouter/vendor/expert",
+        "_expertModel": "venice/minimax-m3",
     }
     captured: dict = {}
 
@@ -123,7 +123,7 @@ async def test_delegate_task_sets_env_and_attaches_manifest(
     assert captured["refreshed"] is True
     assert "Current user-visible sandbox contents" in captured["cli_args"][2]
     assert "Do expert work" in captured["cli_args"][2]
-    assert captured["cli_args"][-2:] == ["-m", "openrouter/vendor/expert"]
+    assert captured["cli_args"][-2:] == ["-m", "venice/minimax-m3"]
     assert captured["env"]["KADY_SESSION_ID"] == "session-gemini"
     assert captured["env"]["KADY_TURN_ID"] == turn_id
     assert captured["env"]["KADY_DELEGATION_ID"] == "001"
@@ -146,7 +146,7 @@ def test_budget_block_response(active_project: str) -> None:
         session_id="budget",
         turn_id="turn",
         role="expert",
-        model="openrouter/vendor/model",
+        model="venice/minimax-m3",
         usage_dict={},
         cost_usd=0.02,
         project_id=active_project,
@@ -168,7 +168,7 @@ async def test_delegate_task_defaults_to_expert_model(
     state = {
         "_sessionId": "session-default",
         "_turnId": turn_id,
-        "_model": "openrouter/anthropic/claude-opus-4.8",
+        "_model": "venice/minimax-m3",
     }
     captured: dict = {}
 
@@ -202,7 +202,7 @@ async def test_delegate_task_returns_cli_failures(
     state = {
         "_sessionId": "session-failure",
         "_turnId": turn_id,
-        "_expertModel": "openrouter/anthropic/claude-opus-4.8",
+        "_expertModel": "venice/qwen3-5-9b",
     }
 
     async def fake_refresh() -> None:
@@ -220,7 +220,7 @@ async def test_delegate_task_returns_cli_failures(
     )
 
     assert result["error"] is True
-    assert result["model"] == "openrouter/anthropic/claude-opus-4.8"
+    assert result["model"] == "venice/qwen3-5-9b"
     assert "TypeError: terminated" in result["result"]
 
 

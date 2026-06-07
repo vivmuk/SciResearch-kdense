@@ -704,14 +704,14 @@ def ensure_project_exists(project_id: str) -> ProjectPaths:
         paths.custom_mcps_path.write_text("{}\n", encoding="utf-8")
 
     # Always ensure the Gemini CLI workspace settings exist so the expert
-    # authenticates via our LiteLLM proxy (gemini-api-key) regardless of
-    # what the user has in ~/.gemini/settings.json (which defaults to
-    # `vertex-ai` on machines that were previously logged into gcloud).
-    # Workspace settings only win over user settings when the folder is
-    # *trusted*; recent Gemini CLI versions silently ignore the workspace
-    # settings.json otherwise. ``ensure_gemini_trust_file`` writes the
-    # Kady-owned trust file that ``delegate_task`` points the CLI at via
-    # ``GEMINI_CLI_TRUSTED_FOLDERS_PATH`` so this protocol actually holds.
+    # authenticates via Venice AI (openai-compatible) regardless of what the
+    # user has in ~/.gemini/settings.json (which defaults to `vertex-ai` on
+    # machines that were previously logged into gcloud). Workspace settings
+    # only win over user settings when the folder is *trusted*; recent Gemini
+    # CLI versions silently ignore the workspace settings.json otherwise.
+    # ``ensure_gemini_trust_file`` writes the Kady-owned trust file that
+    # ``delegate_task`` points the CLI at via ``GEMINI_CLI_TRUSTED_FOLDERS_PATH``
+    # so this protocol actually holds.
     workspace_settings = paths.gemini_settings_dir / "settings.json"
     if not workspace_settings.is_file():
         from .mcp import write_merged_settings

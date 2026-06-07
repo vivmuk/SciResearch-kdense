@@ -483,8 +483,17 @@ def build_paperclip_mcp_spec() -> dict | None:
 
 def build_default_settings() -> dict:
     """Return the base Gemini CLI settings dict with built-in MCP servers."""
+    venice_api_key = os.environ.get("VENICE_API_KEY", "")
     settings: dict = {
-        "security": {"auth": {"selectedType": "gemini-api-key"}},
+        "security": {
+            "auth": {
+                "selectedType": "openai-compatible",
+                "openaiCompatible": {
+                    "baseUrl": "https://api.venice.ai/api/v1",
+                    "apiKey": venice_api_key,
+                },
+            }
+        },
         "mcpServers": {
             "docling": {
                 "command": "uvx",

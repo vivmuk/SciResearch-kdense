@@ -23,38 +23,31 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(REPO_ROOT / "kady_agent" / ".env")
 
 # Env vars that would push the CLI into Vertex AI mode regardless of what we
-# write in the workspace ``settings.json``. We pop them from the spawn env so
-# the LiteLLM-proxy + ``gemini-api-key`` path the workspace settings select is
-# what actually gets used. Note: this is *necessary but not sufficient*: the
-# workspace ``settings.json`` is only honored when the folder is trusted, which
-# is why we also stamp ``GEMINI_CLI_TRUSTED_FOLDERS_PATH`` below.
+# write in the workspace ``settings.json``. We pop them so the
+# openai-compatible (Venice) path the workspace settings select is used.
+# Note: workspace ``settings.json`` is only honored when the folder is trusted,
+# which is why we also stamp ``GEMINI_CLI_TRUSTED_FOLDERS_PATH`` below.
 _VERTEX_AI_ENV_VARS = ("GOOGLE_GENAI_USE_VERTEXAI", "GOOGLE_APPLICATION_CREDENTIALS")
 
-# OpenRouter "App" label (via LiteLLM proxy). Format: gemini-cli-core GEMINI_CLI_CUSTOM_HEADERS.
-_CLI_OPENROUTER_HEADERS = (
+_CLI_CUSTOM_HEADERS = (
     "X-Title: Kady-Expert, HTTP-Referer: https://www.k-dense.ai"
 )
 DEFAULT_EXPERT_MODEL = (
     os.getenv("DEFAULT_EXPERT_MODEL")
-    or "gemini-3-flash-preview"
+    or "venice/qwen3-5-9b"
 )
 
 
 def _cli_can_route(model: str) -> bool:
-    """Return True when the Gemini CLI + our LiteLLM proxy can handle *model*.
+    """Return True when the Gemini CLI can forward *model* to Venice.
 
-    The expert subprocess routes through the LiteLLM proxy at
-    ``GOOGLE_GEMINI_BASE_URL``. Only models configured there resolve:
-    the explicit ``gemini-*`` entries, the ``ollama/*`` wildcard, and
-    the ``openrouter/*`` wildcard. Anything else would cause the CLI to
-    hang on a 404 from the proxy, so we drop the ``-m`` flag and let the
-    CLI fall back to its built-in default Gemini model.
+    The expert subprocess uses openai-compatible auth pointing at the Venice
+    API directly. Any venice/* model is valid; ollama/* goes to local Ollama.
+    Unknown model ids are dropped so the CLI falls back to its built-in default.
     """
     return (
-        model.startswith("gemini-")
+        model.startswith("venice/")
         or model.startswith("ollama/")
-        or model.startswith("openrouter/")
-        or model.startswith("venice/")
     )
 
 
@@ -234,8 +227,7 @@ def _cli_failure_response(error: Exception, selected_model: Optional[str]) -> di
             f"Delegated expert task failed{model_hint}. The Gemini CLI subprocess "
             f"reported:\n\n{message}\n\n"
             "Try again with the recommended expert model "
-            f"`{DEFAULT_EXPERT_MODEL}` if this was caused by a model-specific "
-            "OpenRouter/provider request rejection."
+            f"`{DEFAULT_EXPERT_MODEL}` if this was caused by a model-specific error."
         ),
         "skills_used": [],
         "tools_used": {},
@@ -339,9 +331,9 @@ async def delegate_task(
         env.setdefault("KADY_EXPERT_LABEL", f"Expert #{delegation_id}")
 
     # Build the final GEMINI_CLI_CUSTOM_HEADERS value now that we know the
-    # Kady correlation ids. The LiteLLM proxy's cost callback reads these
-    # off the inbound HTTP request and writes one ledger entry per expert
-    # completion, tagged back to the right session/turn/delegation.
+    # Kady correlation ids. These are forwarded as request headers to Venice
+    # and read back by the cost callback to tag each entry to the right
+    # session/turn/delegation.
     kady_header_parts = [
         f"{name}: {value}"
         for name, value in build_tracking_headers(
@@ -355,15 +347,14 @@ async def delegate_task(
     header_segments: list[str] = []
     if prev_headers:
         header_segments.append(prev_headers)
-    header_segments.append(_CLI_OPENROUTER_HEADERS)
+    header_segments.append(_CLI_CUSTOM_HEADERS)
     header_segments.extend(kady_header_parts)
     env["GEMINI_CLI_CUSTOM_HEADERS"] = ", ".join(header_segments)
 
     _apply_sandbox_venv(env, cwd)
 
-    # Forward the expert-selected model through the LiteLLM proxy. If the
-    # caller did not provide one, use the expert default rather than the
-    # orchestrator model; the Gemini CLI path is more tool-heavy.
+    # Forward the expert-selected model to Venice via the CLI's -m flag.
+    # If the caller did not provide one, use the expert default.
     expert_prompt = _build_expert_prompt(prompt, paths.sandbox)
     cli_args = _build_cli_args(expert_prompt, selected_model)
 

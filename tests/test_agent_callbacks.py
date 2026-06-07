@@ -16,7 +16,7 @@ def test_override_model_injects_tracking_args(
         request = SimpleNamespace(model="original")
         context = SimpleNamespace(
             state={
-                "_model": "openrouter/test-model",
+                "_model": "venice/minimax-m3",
                 "_sessionId": "session",
                 "_turnId": "turn",
             }
@@ -24,13 +24,12 @@ def test_override_model_injects_tracking_args(
 
         assert agent._override_model(context, request) is None
 
-        assert request.model == "openrouter/test-model"
+        assert request.model == "openai/minimax-m3"
         args = agent._LITELLM_MODEL._additional_args
         assert args["extra_headers"]["X-Kady-Role"] == "orchestrator"
         assert args["extra_headers"]["X-Kady-Session-Id"] == "session"
         assert args["extra_headers"]["X-Kady-Project"] == active_project
         assert args["metadata"]["kady_turn_id"] == "turn"
-        assert args["extra_body"] == {"usage": {"include": True}}
     finally:
         agent._LITELLM_MODEL._additional_args.clear()
         agent._LITELLM_MODEL._additional_args.update(original_args)
@@ -49,7 +48,7 @@ async def test_open_and_close_turn_manifest_callbacks(
     user_content = SimpleNamespace(parts=[SimpleNamespace(text="hello"), SimpleNamespace(text=" world")])
     invocation = SimpleNamespace(session=SimpleNamespace(id="session-cb"), user_content=user_content)
     context = SimpleNamespace(
-        state={"_model": "openrouter/orchestrator", "_expertModel": "openrouter/expert"},
+        state={"_model": "venice/minimax-m3", "_expertModel": "venice/qwen3-5-9b"},
         _invocation_context=invocation,
     )
 
@@ -64,7 +63,7 @@ async def test_open_and_close_turn_manifest_callbacks(
     assert manifest["output"]["assistantTextPreview"] == "assistant output"
 
 
-def test_orchestrator_cost_logger_filters_and_records(active_project: str) -> None:
+def test_orchestrator_cost_logger_records(active_project: str) -> None:
     from kady_agent import agent, runtime
 
     logger = agent._OrchestratorCostLogger()
@@ -74,73 +73,14 @@ def test_orchestrator_cost_logger_filters_and_records(active_project: str) -> No
         session_id="session-cost",
         turn_id="turn-cost",
     )
-    metadata = {
-        **tags,
-        "hidden_params": {
-            "litellm_model_name": "openrouter/vendor/model",
-            "received_model_id": "gen-123",
-        },
-    }
     kwargs = {
-        "custom_llm_provider": "openrouter",
-        "model": "vendor/model",
-        "litellm_params": {"metadata": metadata},
+        "model": "openai/minimax-m3",
+        "litellm_params": {"metadata": tags},
     }
     response = {"usage": {"prompt_tokens": 1, "completion_tokens": 2, "total_cost": 0.03}}
 
-    entry_id, gen_id, project_id = logger._record(kwargs, response)
+    logger._record(kwargs, response)
 
-    assert entry_id
-    assert gen_id is None
-    assert project_id == active_project
     summary = runtime.read_costs("session-cost", project_id=active_project)
     assert summary["orchestratorUsd"] == 0.03
-    assert summary["entries"][0]["model"] == "openrouter/vendor/model"
-
-
-def test_orchestrator_cost_logger_ignores_non_openrouter(active_project: str) -> None:
-    from kady_agent import agent, runtime
-
-    logger = agent._OrchestratorCostLogger()
-    kwargs = {
-        "custom_llm_provider": "ollama",
-        "model": "ollama/local",
-        "litellm_params": {
-            "metadata": runtime.build_tracking_metadata(
-                role="orchestrator",
-                project_id=active_project,
-                session_id="session-ignore",
-                turn_id="turn-ignore",
-            )
-        },
-    }
-    assert logger._record(kwargs, {"usage": {}}) == (None, None, None)
-    assert runtime.read_costs("session-ignore", project_id=active_project)["entries"] == []
-
-
-async def test_orchestrator_cost_backfill_updates_entry(
-    active_project: str, monkeypatch: pytest.MonkeyPatch
-) -> None:
-    from kady_agent import agent, runtime
-
-    entry_id = runtime.record_cost(
-        session_id="session-backfill",
-        turn_id="turn",
-        role="orchestrator",
-        model="openrouter/vendor/model",
-        usage_dict={},
-        cost_usd=None,
-        project_id=active_project,
-    )
-
-    async def fake_fetch(gen_id: str) -> float:
-        assert gen_id == "gen-backfill"
-        return 0.12
-
-    monkeypatch.setattr(agent, "_fetch_openrouter_generation_cost", fake_fetch)
-    await agent._OrchestratorCostLogger._backfill_cost(
-        "session-backfill", entry_id, "gen-backfill", active_project
-    )
-    summary = runtime.read_costs("session-backfill", project_id=active_project)
-    assert summary["entries"][0]["costUsd"] == 0.12
-    assert summary["entries"][0]["costPending"] is False
+    assert summary["entries"][0]["model"] == "openai/minimax-m3"

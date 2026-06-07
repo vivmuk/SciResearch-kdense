@@ -1,62 +1,9 @@
-# Configuration for K-Dense using Venice AI
+# LiteLLM proxy config — retained only for the cost-tracking callback.
+# All model calls now go directly to the Venice API; this proxy is no longer
+# in the request path. You can stop running it if you don't need cost logging
+# from the expert subprocess.
 
-.venice_shared: &venice_shared
-  api_base: https://api.venice.ai/api/v1
-  api_key: os.environ/VENICE_API_KEY
-  custom_llm_provider: openai
-  timeout: 600
-  stream_timeout: 600
-  extra_headers:
-    HTTP-Referer: "https://www.k-dense.ai"
-    X-Title: "Kady-Expert"
-
-model_list:
-  # ── Venice Models mapped to Gemini names for compatibility ──
-  - model_name: gemini-3.1-pro-preview
-    litellm_params:
-      <<: *venice_shared
-      model: openai/minimax-m3
-  - model_name: gemini-3-flash-preview
-    litellm_params:
-      <<: *venice_shared
-      model: openai/qwen3-5-9b
-  - model_name: gemini-3.1-flash-lite-preview
-    litellm_params:
-      <<: *venice_shared
-      model: openai/qwen3-5-9b
-
-  # ── Venice wildcard ──
-  - model_name: "venice/*"
-    litellm_params:
-      model: "openai/*"
-      custom_llm_provider: openai
-      api_base: https://api.venice.ai/api/v1
-      api_key: os.environ/VENICE_API_KEY
-      timeout: 600
-      stream_timeout: 600
-      extra_headers:
-        HTTP-Referer: "https://www.k-dense.ai"
-        X-Title: "Kady-Expert"
-
-  # ── Local Ollama (no API key required) ──
-  - model_name: "ollama/*"
-    litellm_params:
-      model: "ollama_chat/*"
-      api_base: os.environ/OLLAMA_BASE_URL
-      timeout: 600
-      stream_timeout: 600
-
-router_settings:
-  num_retries: 4
-  model_group_alias:
-    "gemini-3.1-pro-preview-customtools": "gemini-3.1-pro-preview"
-    "gemini-3-flash-preview-customtools": "gemini-3-flash-preview"
-    "gemini-3-flash-preview": "gemini-3-flash-preview"
-    "gemini-3.1-flash-lite-preview-customtools": "gemini-3-flash-preview"
-    "gemini-2.5-pro": "gemini-3.1-pro-preview"
-    "gemini-2.5-flash": "gemini-3-flash-preview"
-    "gemini-2.5-flash-lite": "gemini-3-flash-preview"
-    "gemini-3-pro-preview": "gemini-3.1-pro-preview"
+model_list: []
 
 general_settings:
   master_key: sk-litellm-local

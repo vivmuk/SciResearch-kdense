@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 
 from fastapi import APIRouter, HTTPException, Request
@@ -71,6 +72,14 @@ async def revise_markdown(request: Request):
             detail="No model configured (set DEFAULT_AGENT_MODEL or pass 'model').",
         )
 
+    # venice/* models must be routed directly to the Venice OpenAI-compatible
+    # endpoint because litellm.acompletion doesn't know the "venice" provider.
+    extra_kwargs: dict = {}
+    if model.startswith("venice/"):
+        extra_kwargs["api_base"] = "https://api.venice.ai/api/v1"
+        extra_kwargs["api_key"] = os.environ.get("VENICE_API_KEY", "")
+        model = "openai/" + model[len("venice/"):]
+
     user_message_parts = [f"INSTRUCTION:\n{instruction}"]
     if before:
         user_message_parts.append(
@@ -93,6 +102,7 @@ async def revise_markdown(request: Request):
             extra_headers=EXTRA_HEADERS,
             temperature=0.2,
             timeout=120,
+            **extra_kwargs,
         )
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=502, detail=f"Model call failed: {exc}")
