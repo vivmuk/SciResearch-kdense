@@ -1,6 +1,8 @@
 import asyncio
+import json
 import logging
 import os
+from pathlib import Path
 from typing import Any
 
 import litellm
@@ -48,6 +50,40 @@ def _venice_model(model: str) -> str:
     if model.startswith("venice/"):
         return "openai/" + model[len("venice/"):]
     return model
+
+
+def _register_venice_model_prices() -> None:
+    """Register Venice model prices with litellm so response_cost is populated.
+
+    litellm prices models by their fully-qualified id in litellm.model_cost.
+    Venice models come through as `openai/<name>` (after _venice_model()),
+    so we register both `openai/<name>` and `venice/<name>` keys.
+    Prices in models.json are USD per 1M tokens; litellm expects USD per token.
+    """
+    models_path = Path(__file__).resolve().parents[1] / "web" / "src" / "data" / "models.json"
+    try:
+        models = json.loads(models_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return
+    for m in models:
+        vid = m.get("id", "")  # e.g. "venice/minimax-m3"
+        pricing = m.get("pricing") or {}
+        prompt_per_m = pricing.get("prompt")
+        completion_per_m = pricing.get("completion")
+        if not vid.startswith("venice/") or prompt_per_m is None or completion_per_m is None:
+            continue
+        model_name = vid[len("venice/"):]
+        entry = {
+            "input_cost_per_token": prompt_per_m / 1_000_000,
+            "output_cost_per_token": completion_per_m / 1_000_000,
+            "litellm_provider": "openai",
+            "mode": "chat",
+        }
+        litellm.model_cost[f"openai/{model_name}"] = entry
+        litellm.model_cost[vid] = entry
+
+
+_register_venice_model_prices()
 
 logger = logging.getLogger(__name__)
 

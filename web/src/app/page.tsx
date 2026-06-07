@@ -374,13 +374,17 @@ export default function ChatPage() {
       <header className="relative flex items-center justify-between border-b px-6 py-3">
         <div className="flex items-center gap-2">
           <a href="https://www.k-dense.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-            {/* Plain <img> to avoid Next/Image's aspect-ratio warning when we
-                set height via CSS and let width autosize. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/kdense-logo.png"
               alt="Vivek's Scientific Research by K-dense"
-              className="h-7 w-auto object-contain dark:invert"
+              className="h-7 w-auto object-contain block dark:hidden"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/kdense-logo-dark.png"
+              alt="Vivek's Scientific Research by K-dense"
+              className="h-7 w-auto object-contain hidden dark:block"
             />
             <span className="text-sm font-semibold tracking-tight text-foreground/80">BYOK</span>
           </a>

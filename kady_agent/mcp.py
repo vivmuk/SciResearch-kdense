@@ -497,8 +497,7 @@ def build_default_settings() -> dict:
         "mcpServers": {
             "docling": {
                 "command": "uvx",
-                "args": ["--from=docling-mcp", "docling-mcp-server"],
-                "env": {"PORT": "8001"},
+                "args": ["--from=docling-mcp", "docling-mcp-server", "--port", "8001"],
             },
             # Lets the expert drop highlights / sticky notes into the
             # <pdf>.annotations.json sidecar so the user-facing PDF
