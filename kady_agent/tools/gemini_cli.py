@@ -36,7 +36,7 @@ _CLI_OPENROUTER_HEADERS = (
 )
 DEFAULT_EXPERT_MODEL = (
     os.getenv("DEFAULT_EXPERT_MODEL")
-    or "openrouter/google/gemini-3.5-flash"
+    or "gemini-3-flash-preview"
 )
 
 

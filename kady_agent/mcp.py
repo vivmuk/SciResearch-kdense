@@ -489,6 +489,7 @@ def build_default_settings() -> dict:
             "docling": {
                 "command": "uvx",
                 "args": ["--from=docling-mcp", "docling-mcp-server"],
+                "env": {"PORT": "8001"},
             },
             # Lets the expert drop highlights / sticky notes into the
             # <pdf>.annotations.json sidecar so the user-facing PDF
@@ -509,7 +510,7 @@ def build_default_settings() -> dict:
             },
             "venice-mcp": {
                 "command": "npx",
-                "args": ["-y", "venice-mcp"],
+                "args": ["-y", "@veniceai/mcp-server"],
                 "env": {
                     "VENICE_API_KEY": os.environ.get("VENICE_API_KEY", "")
                 }
