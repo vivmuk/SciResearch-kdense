@@ -29,6 +29,7 @@ model_list:
   - model_name: "venice/*"
     litellm_params:
       model: "openai/*"
+      custom_llm_provider: openai
       api_base: https://api.venice.ai/api/v1
       api_key: os.environ/VENICE_API_KEY
       timeout: 600
