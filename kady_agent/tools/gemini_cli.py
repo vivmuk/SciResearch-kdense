@@ -54,6 +54,7 @@ def _cli_can_route(model: str) -> bool:
         model.startswith("gemini-")
         or model.startswith("ollama/")
         or model.startswith("openrouter/")
+        or model.startswith("venice/")
     )
 
 
