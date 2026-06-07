@@ -1,12 +1,27 @@
 # Start from python image
 FROM python:3.13-slim
 
-# Install dependencies: nodejs, npm, curl, supervisor
+# Install dependencies: nodejs, npm, curl, supervisor, and playwright system dependencies
 RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     curl \
     supervisor \
+    libnss3 \
+    libnspr4 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxrandr2 \
+    libgbm1 \
+    libasound2 \
+    libpango-1.0-0 \
+    libcairo2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv and gemini-cli
@@ -23,7 +38,7 @@ WORKDIR /app
 COPY pyproject.toml .
 
 # Install python packages
-RUN uv sync
+RUN uv sync && uv run playwright install chromium
 
 # Copy frontend packages
 COPY web/package*.json ./web/
